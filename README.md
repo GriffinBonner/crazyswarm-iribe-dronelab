@@ -1,8 +1,8 @@
 # IRB DroneLab Crazyflie + Crazyswarm Vicon Instructions
 
-**RAAS Lab** Iribe Center 3207
-**Faculty** Pratap Tokekar <tokekar@umd.edu>
-**Authors** Griffin Bonner <gbonner1@umd.edu>, Guangyao Shi <gyshi@umd.edu>
+**RAAS Lab** Iribe Center 3207 <br/>
+**Faculty** Pratap Tokekar <tokekar@umd.edu> <br/>
+**Authors** Griffin Bonner <gbonner1@umd.edu>, Guangyao Shi <gyshi@umd.edu> <br/>
 
 ## Description
 These instructions serve to explain the process and issues faced while testing the Crazyflie 2.1 micro drone with the Vicon motion capture system in the IRB drone lab. 
