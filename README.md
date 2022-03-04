@@ -49,13 +49,13 @@ Proceed to the *configuration* page of the crazyswarm documentation. Every step 
 #### Crazyflie Software Configuration
 In keeping with the configuration documentation, flash the crazyflies with the crazyswarm compatible firmware, assign unique identifiers (following the enumeration convention discribed) and assign radio channels (which need not be unique). The assigned channel corresponds to a single *Crazyradio PA*, thus if you are running two crazyflies, setting them to the same channel will default to a single radio whereas setting them to unique channels will require two physical radios. We have experimentally determined that at maximum two crazyflies should be assigned the same radio address, thus if you run with four crazyflies you will need two crazyradios. Firmware, identification, and radio channels will not be assigned automatically, you need to launch the crazyflie client, plug in the crazyflie via usb, enter *bootloader mode* by holding the power button for two full seconds until two blue lights appear on the rear arms, then from the top menu select *crazyflie* -> *bootloader* select the approved firmware version, we used *version 2021.6* which is the newest approved version, and select flash both STM32 + nRF51. After flashing the firmware, powercycle the crazyflie. The connection method in the top left of the client should auto-populate with USB://dev.. select connect and then from the top drop down menu find *crazyflie* -> *configure* and enter the chosen identifier and radio channel. Continue with the crazyswarm configuration documentation...
 
-TODO: add IP address for vicon system
-
 The *Vicon* tab is the relevant tab because this is the physical hardware we have in the IRB drone lab. The vicon tracker software runs on the lab computer and sends the motion capture data over wifi or ethernet to the local computer running the crazyswarm software. The following modifications will be made in the *hover_swarm.launch* file with path specified by the documentation, this file is the ros launch file which will contain all crazyswarm configuration parameters. 
 
     # ros_ws/src/crazyswarm/launch/hover_swarm.launch
-    motion_capture_type: "vicon"
-    motion_capture_host_name: "viconPC" # hostname or IP address
+    motion_capture_type: "vicon" # one of none,vicon,optitrack,qualisys,vrpn
+    object_tracking_type: "libobjecttracker" # one of motionCapture,libobjecttracker
+    send_position_only: False # set to False to send position+orientation; set to True to send position only
+    vicon_host_name: "192.168.78.11"
 
 There are two *object tracking modes* provided by crazyswarm, these determine where the identification of and discrimination between drones will take place. If the *unique marker configurations* is selected, the drones must have different marker configurations, (which becomes very difficult for more than four drones) the vicon software will track the drones and each drone must be labeled within this software. If the *duplicated marker configurations* is selected, the drones must start at predetermined starting locations specified in the *crazyflies.yaml* configuration file. The crazyswarm software will discriminate which drone corresponds to which crazyflie ID during launch. It is recommended to select the duplicated marker option and follow the instructions given. A photo of a working and experimentally ideal marker configuration is attached to this repository.
 
@@ -67,7 +67,16 @@ The user should create their own ros launch file and understand the implications
 #### Define Crazyflie Types
 The "default" marker configuration according to the crazyswarm documentation is not the same as the experimentally determined ideal configuration given in this tutorial. It is important that the crazyswarm package understands the geometry of the markers in the duplicated marker configuration. If a new configuration needs to be used, follow the instructions provided by the crazyswarm documentation. If you plan to use the configuration provided by this document, the points are given below and can be added to *crazyflieTypes.yaml*. It should be obvious that if a completely different drone is used with the crazyswarm software, many additional parameters will need to be changed as the shape and weight of any other drone will significantly affect the dynamics and the stock parameters are tuned for the crazyflie. 
 
-TODO: add code for crazyflie marker positions
+    # ros_ws/src/crazyswarm/launch/crazyflieTypes.yaml
+    markerConfigurations:
+    "0":  # for standard Crazyflie
+      numPoints: 4
+      offset: [0.0, -0.01, -0.04]
+      points:
+        "0": [0.0053868,0.00298296,0.0345655]
+        "1": [-0.0130016,0.022591,0.0253847]
+        "2": [0.00677098,0.0471788,0.0234509]
+        "3": [0.0358569,0.0226408,0.0231263]
 
 ![logo](https://github.com/GriffinBonner/crazyswarm-iribe-dronelab/blob/main/CF_MarkerConfig_1.jpg)
 ![logo](https://github.com/GriffinBonner/crazyswarm-iribe-dronelab/blob/main/CF_MarkerConfig_2.jpg)
