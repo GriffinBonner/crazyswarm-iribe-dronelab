@@ -7,8 +7,6 @@
 ## Description
 These instructions serve to explain the process and issues faced while testing the Crazyflie 2.1 micro drone with the Vicon motion capture system in the IRB drone lab. 
 
-![logo](https://github.com/GriffinBonner/crazyswarm-iribe-dronelab/blob/main/CF_MarkerConfig_1.jpg)
-
 ## Hardware Dependencies
 | Device | Link |
 | ------ | ------ |
@@ -71,6 +69,8 @@ The "default" marker configuration according to the crazyswarm documentation is 
 
 TODO: add code for crazyflie marker positions
 
+![logo](https://github.com/GriffinBonner/crazyswarm-iribe-dronelab/blob/main/CF_MarkerConfig_1.jpg)
+![logo](https://github.com/GriffinBonner/crazyswarm-iribe-dronelab/blob/main/CF_MarkerConfig_2.jpg)
 
 ## Vicon Instructions
 The vicon system includes the motion capture cameras, windows pc running vicon tracker software, and the Iribe drone lab network. Instructions on how to operate safely in the lab and use the equipment including the vicon system should be received from Ivan Penskiy <ipenskiy@umd.edu> before obtaining swipe access to the Iribe drone lab.
