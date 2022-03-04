@@ -7,6 +7,8 @@
 ## Description
 These instructions serve to explain the process and issues faced while testing the Crazyflie 2.1 micro drone with the Vicon motion capture system in the IRB drone lab. 
 
+![logo](https://github.com/GriffinBonner/crazyswarm-iribe-dronelab/blob/main/CF_MarkerConfig_1.jpg)
+
 ## Hardware Dependencies
 | Device | Link |
 | ------ | ------ |
