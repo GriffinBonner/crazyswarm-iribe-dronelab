@@ -87,24 +87,24 @@ When the drones or any object with a reflective marker is placed in the netted a
 
 ## Operating Procedure
 
-**1.** Turn on the vicon cameras and login to the lab pc. Login instructions are given in the lab tutorial, contact Ivan Penskiy <ipenskiy@umd.edu>.
-**2.** Wait until the camera temperature has risen to ~50-55 degrees, visible in the vicon tracker software.
-**3.** On the ubuntu computer that is running the crazyswarm software, join the Iribe DroneLab wifi network or connect to the PC running vicon tracker with LAN via the blue ethernet cable.
-**4.** In the terminal on the ubuntu computer source the crazyswarm setup bash file, location given in crazyswarm configuration documentation. Creating a bash alias is recommended.
-**5.** Place all crazyflies that you intend to use at their predetermined starting locations within the netted area facing the +x axis. The crazyflie with identification 1 *must* always be used.
-**6.** Plug in all required crazyradios observing the heuristic that there should be a maximum of two crazyflies on a given radio channel.
-**7.** Turn on all crazyflies in the netted area, be careful to maintain their location. 
-**8.** Run the *chooser.py* script with the following command and select all active crazyflies by identification number, click reboot, make sure that the correct ID's are displayed to the terminal.
+**1.** Turn on the vicon cameras and login to the lab pc. Login instructions are given in the lab tutorial, contact Ivan Penskiy <ipenskiy@umd.edu>. <br/>
+**2.** Wait until the camera temperature has risen to ~50-55 degrees, visible in the vicon tracker software. <br/>
+**3.** On the ubuntu computer that is running the crazyswarm software, join the Iribe DroneLab wifi network or connect to the PC running vicon tracker with LAN via the blue ethernet cable. <br/>
+**4.** In the terminal on the ubuntu computer source the crazyswarm setup bash file, location given in crazyswarm configuration documentation. Creating a bash alias is recommended. <br/>
+**5.** Place all crazyflies that you intend to use at their predetermined starting locations within the netted area facing the +x axis. The crazyflie with identification 1 *must* always be used. <br/>
+**6.** Plug in all required crazyradios observing the heuristic that there should be a maximum of two crazyflies on a given radio channel. <br/>
+**7.** Turn on all crazyflies in the netted area, be careful to maintain their location. <br/>
+**8.** Run the *chooser.py* script with the following command and select all active crazyflies by identification number, click reboot, make sure that the correct ID's are displayed to the terminal. <br/>
 
     # ros_ws/src/crazyswarm/scripts/chooser.py
     python3 chooser.py
 
-**9.** Run the crazyswarm ros launch file with the following command. Confirm that all active crazyflies appear at the correct initial positions with correct x,y,z orientation relative to the global coordinate system.
+**9.** Run the crazyswarm ros launch file with the following command. Confirm that all active crazyflies appear at the correct initial positions with correct x,y,z orientation relative to the global coordinate system. <br/>
 
     # ros_ws/src/crazyswarm/launch/hover_swarm.launch
     roslaunch crazyswarm hover_swarm.launch
 
-**10.** Run a provided test with the following command to make sure that the system is configured properly.
+**10.** Run a provided test with the following command to make sure that the system is configured properly. <br/>
 
     # ros_ws/src/crazyswarm/scripts/niceHover.py
     python3 niceHover.py
